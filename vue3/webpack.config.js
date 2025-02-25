@@ -6,7 +6,10 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].js',
+    libraryTarget: 'system',
+    publicPath: '/',
+    chunkLoadingGlobal: 'webpackJsonp_vue3'
   },
   module: {
     rules: [
@@ -30,6 +33,7 @@ module.exports = {
       template: './public/index.html'
     })
   ],
+  externals: ['single-spa-vue', 'vue'],
   resolve: {
     extensions: ['.js', '.vue']
   },
@@ -38,6 +42,10 @@ module.exports = {
       directory: path.join(__dirname, 'public')
     },
     port: 3001,
-    hot: true
+    hot: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    },
+    historyApiFallback: true
   }
 }; 

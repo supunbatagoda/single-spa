@@ -3,10 +3,16 @@ const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: {
+    'vue2-app': './src/main.js',
+    'root-config': './src/root-config.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].js',
+    libraryTarget: 'system',
+    publicPath: '/',
+    chunkLoadingGlobal: 'webpackJsonp_vue2'
   },
   module: {
     rules: [
@@ -27,8 +33,15 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: './public/index.html'
+      template: './public/root-config.html',
+      filename: 'index.html',
+      chunks: ['root-config']
     })
+  ],
+  externals: [
+    'single-spa-vue',
+    'vue',
+    'single-spa'
   ],
   resolve: {
     extensions: ['.js', '.vue']
@@ -38,6 +51,10 @@ module.exports = {
       directory: path.join(__dirname, 'public')
     },
     port: 3000,
-    hot: true
+    hot: true,
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    },
+    historyApiFallback: true
   }
 }; 
