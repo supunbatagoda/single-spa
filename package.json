@@ -17,7 +17,9 @@
     
     "dev": "concurrently \"npm run dev:vue2\" \"npm run dev:vue3\"",
     "dev:vue2": "cd vue2 && npm run dev",
-    "dev:vue3": "cd vue3 && npm run dev"
+    "dev:vue3": "cd vue3 && npm run dev",
+
+    "serve": "npm run build && npm run start"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"

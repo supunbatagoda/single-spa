@@ -11,7 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
     libraryTarget: 'system',
-    publicPath: '/',
+    publicPath: 'http://localhost:3000/',
     chunkLoadingGlobal: 'webpackJsonp_vue2'
   },
   module: {

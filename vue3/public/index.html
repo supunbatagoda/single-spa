@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue 3 Sample</title>
+    <!-- SystemJS -->
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
+    <script src="https://unpkg.com/vue@3.3.4/dist/vue.global.js"></script>
+
+    <!-- Import map for external dependencies -->
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "single-spa-vue": "https://cdn.jsdelivr.net/npm/single-spa-vue@2.1.0/dist/system/single-spa-vue.min.js"
+        }
+      }
+    </script>
 </head>
 <body>
     <div id="app"></div>
+    <script>
+      System.import('./vue3-app.js');
+    </script>
 </body>
 </html> 

@@ -1,21 +1,27 @@
 const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: {
+    'vue3-app': './src/main.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: 'vue3-app.js',
     libraryTarget: 'system',
-    publicPath: '/',
+    publicPath: 'http://localhost:3001/',
     chunkLoadingGlobal: 'webpackJsonp_vue3'
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
+        options: {
+          hotReload: false
+        }
       },
       {
         test: /\.js$/,
@@ -31,9 +37,15 @@ module.exports = {
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html'
+    }),
+    new webpack.DefinePlugin({
+      __VUE_HMR_RUNTIME__: JSON.stringify(null),
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     })
   ],
-  externals: ['single-spa-vue', 'vue'],
+  externals: [
+    'single-spa-vue',
+  ],
   resolve: {
     extensions: ['.js', '.vue']
   },
@@ -42,7 +54,7 @@ module.exports = {
       directory: path.join(__dirname, 'public')
     },
     port: 3001,
-    hot: true,
+    hot: false,
     headers: {
       "Access-Control-Allow-Origin": "*"
     },

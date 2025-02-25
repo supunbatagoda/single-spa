@@ -9,6 +9,11 @@ const vueLifecycles = singleSpaVue({
   }
 });
 
-export const bootstrap = vueLifecycles.bootstrap;
-export const mount = vueLifecycles.mount;
-export const unmount = vueLifecycles.unmount; 
+const { bootstrap, mount, unmount } = vueLifecycles;
+
+// Export the lifecycle functions to window
+window.vue2app = {
+  bootstrap,
+  mount,
+  unmount
+}; 
