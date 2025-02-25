@@ -1,0 +1,29 @@
+{
+  "name": "single-spa-shell",
+  "version": "1.0.0",
+  "description": "single-spa-shell",
+  "scripts": {
+    "install:all": "npm run install:vue2 && npm run install:vue3",
+    "install:vue2": "cd vue2 && npm install",
+    "install:vue3": "cd vue3 && npm install",
+    
+    "build": "npm run build:vue2 && npm run build:vue3",
+    "build:vue2": "cd vue2 && npm run build",
+    "build:vue3": "cd vue3 && npm run build",
+    
+    "start": "concurrently \"npm run start:vue2\" \"npm run start:vue3\"",
+    "start:vue2": "cd vue2 && npm run serve",
+    "start:vue3": "cd vue3 && npm run serve",
+    
+    "dev": "concurrently \"npm run dev:vue2\" \"npm run dev:vue3\"",
+    "dev:vue2": "cd vue2 && npm run dev",
+    "dev:vue3": "cd vue3 && npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "vue2",
+    "vue3"
+  ]
+} 
