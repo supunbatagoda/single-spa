@@ -1,22 +1,12 @@
 <template>
-  <div class="hello">
+  <div :class="styles.hello2">
     <p>{{ greeting }}</p>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'HelloWorld',
-  data() {
-    return {
-      greeting: 'Hello from Vue 3 Component!'
-    };
-  }
-};
-</script>
+<script setup>
+import { ref } from 'vue';
+import styles from './HelloWorld.module.css';
 
-<style scoped>
-.hello {
-  color: #42b983;
-}
-</style> 
+const greeting = ref('Hello from Vue 3 Component!');
+</script>

@@ -1,24 +1,15 @@
 <template>
   <div class="app">
-    <h1>{{ message }}</h1>
-    <hello-world></hello-world>
+    <h1 style="color: #f72fcb;">{{ message }}</h1>
+    <HelloWorld />
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  },
-  data() {
-    return {
-      message: 'Welcome to Vue 3 Application'
-    };
-  }
-};
+const message = ref('Welcome to Vue 3 Application');
 </script>
 
 <style>

@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <h1>{{ message }}</h1>
+    <h1 style="color: #42b983;">{{ message }}</h1>
     <hello-world></hello-world>
   </div>
 </template>

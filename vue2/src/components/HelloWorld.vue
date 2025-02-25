@@ -17,6 +17,6 @@ export default {
 
 <style scoped>
 .hello {
-  color: #42b983;
+  color: #1cf090;
 }
 </style> 

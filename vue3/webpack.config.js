@@ -29,7 +29,30 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['vue-style-loader', 'css-loader']
+        oneOf: [
+          // CSS Modules
+          {
+            test: /\.module\.css$/,
+            use: [
+              'vue-style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: {
+                    localIdentName: '[local]_[hash:base64:8]'
+                  }
+                }
+              }
+            ]
+          },
+          // regular CSS files
+          {
+            use: [
+              'vue-style-loader',
+              'css-loader'
+            ]
+          }
+        ]
       }
     ]
   },
