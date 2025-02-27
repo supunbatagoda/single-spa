@@ -8,6 +8,27 @@
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
 
+    <!-- Vue 2 for the shell -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.min.js"></script>
+    
+    <!-- Vue 3 with a different global name -->
+    <script>
+        // Store Vue 2 temporarily
+        const Vue2 = window.Vue;
+        window.Vue = null;
+    </script>
+    <script src="https://unpkg.com/vue@3.3.4/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.js"></script>
+    <script>
+        // Store Vue 3 and Vue Router, then restore Vue 2
+        window.Vue3 = {
+            ...window.Vue,
+            VueRouter: window.VueRouter
+        };
+        window.Vue = Vue2;
+        window.VueRouter = null;
+    </script>
+
     <!-- Import map for external dependencies -->
     <script type="systemjs-importmap">
       {

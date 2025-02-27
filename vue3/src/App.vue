@@ -1,20 +1,33 @@
 <template>
   <div class="app">
-    <h1 style="color: #f72fcb;">{{ message }}</h1>
-    <HelloWorld />
+    <nav>
+      <router-link to="/v2">Home</router-link> |
+      <router-link to="/v2/about">About</router-link>
+    </nav>
+    <router-view></router-view>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
-
-const message = ref('Welcome to Vue 3 Application');
 </script>
 
 <style>
 .app {
   text-align: center;
   margin-top: 60px;
+}
+
+nav {
+  padding: 20px;
+}
+
+nav a {
+  color: #f72fcb;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+nav a.router-link-active {
+  font-weight: bold;
 }
 </style> 
