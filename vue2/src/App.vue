@@ -1,7 +1,11 @@
 <template>
   <div class="app">
     <h1 style="color: #42b983;">{{ message }}</h1>
-    <hello-world></hello-world>
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </nav>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -25,5 +29,19 @@ export default {
 .app {
   text-align: center;
   margin-top: 60px;
+}
+
+nav {
+  padding: 20px;
+}
+
+nav a {
+  color: #42b983;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+nav a.router-link-active {
+  font-weight: bold;
 }
 </style> 

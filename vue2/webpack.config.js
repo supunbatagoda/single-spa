@@ -41,7 +41,8 @@ module.exports = {
   externals: [
     'single-spa-vue',
     'vue',
-    'single-spa'
+    'single-spa',
+    'vue-router'
   ],
   resolve: {
     extensions: ['.js', '.vue']
