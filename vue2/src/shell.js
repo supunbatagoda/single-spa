@@ -7,11 +7,11 @@ if (!window.System) {
 
 // Register Vue 2 application
 registerApplication({
-    name: 'vue2app',
+    name: 'main',
     app: async () => {
-        console.log('Loading vue2 app...');
-        await window.System.import('./vue2-app.js');
-        console.log('Loading vue2 app done...');
+        console.log('Loading vue2 main app...');
+        await window.System.import('./main.js');
+        console.log('Loading vue2 main app done...');
         return window.vue2app;
     },
     activeWhen: location => !location.pathname.startsWith('/v2'),
@@ -19,10 +19,10 @@ registerApplication({
 
 // Register Vue 3 application
 registerApplication({
-    name: 'vue3app',
+    name: 'app',
     app: async () => {
         console.log('Loading vue3 app...');
-        await window.System.import('http://localhost:3001/vue3-app.js');
+        await window.System.import('http://localhost:3001/app.js');
         console.log('Loading vue3 app done...');
         return window.vue3app;
     },

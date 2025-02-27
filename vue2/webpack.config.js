@@ -4,15 +4,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    'vue2-app': './src/main.js',
-    'root-config': './src/root-config.js'
+    'main': './src/main.js',
+    'shell': './src/shell.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
     libraryTarget: 'system',
     publicPath: 'http://localhost:3000/',
-    chunkLoadingGlobal: 'webpackJsonp_vue2'
+    chunkLoadingGlobal: 'webpackJsonp_shell'
   },
   module: {
     rules: [
@@ -33,9 +33,9 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: './public/root-config.html',
+      template: './public/index.html',
       filename: 'index.html',
-      chunks: ['root-config']
+      chunks: ['shell']
     })
   ],
   externals: [

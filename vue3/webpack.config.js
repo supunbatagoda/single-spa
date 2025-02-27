@@ -5,14 +5,14 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    'vue3-app': './src/main.js'
+    'app': './src/main.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'vue3-app.js',
+    filename: 'app.js',
     libraryTarget: 'system',
     publicPath: 'http://localhost:3001/',
-    chunkLoadingGlobal: 'webpackJsonp_vue3'
+    chunkLoadingGlobal: 'webpackJsonp_app'
   },
   module: {
     rules: [
